@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Confluence Side Table of Contents",
+  "version": "1.0",
+  "description": "A side table of contents for Confluence.",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "js": ["/assets/stoc-init.js"],
+      "css": ["/assets/stoc-init.css"],
+      "matches": ["https://*/*"],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["/index.js", "/index.css"],
+      "matches": ["https://*/*"]
+    }
+  ]
+}

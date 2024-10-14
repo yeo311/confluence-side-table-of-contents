@@ -1,0 +1,31 @@
+#side-table-of-contents {
+  position: fixed;
+  top: 100px;
+  right: 0;
+  width: 230px;
+}
+
+.side-table-of-contents {
+  border-left: 2px solid #f1f3f5;
+  padding-left: 10px;
+}
+
+.side-table-of-contents__item {
+  padding: 5px;
+}
+
+.side-table-of-contents__link {
+  color: #868e96 !important;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.side-table-of-contents__link:hover {
+  color: #121212 !important;
+  text-decoration: none !important;
+}
+
+#main #content {
+  padding-right: 250px !important;
+}
