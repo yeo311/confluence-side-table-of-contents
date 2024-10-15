@@ -11,17 +11,17 @@ function App() {
 
   useEffect(() => {
     const mainContent = document.getElementById('main-content');
-    if (mainContent) {
-      const headings = mainContent.querySelectorAll('h1, h2, h3, h4, h5, h6');
-      const headingList = Array.from(headings).map((heading) => {
-        return {
-          level: Number(heading.tagName.slice(1)),
-          text: heading.textContent,
-          scrollPosition: heading.getBoundingClientRect().top,
-        };
-      });
-      setHeadingList(headingList);
-    }
+    if (!mainContent) return;
+
+    const headings = mainContent.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    const headingList = Array.from(headings).map((heading) => {
+      return {
+        level: Number(heading.tagName.slice(1)),
+        text: heading.textContent,
+        scrollPosition: heading.getBoundingClientRect().top,
+      };
+    });
+    setHeadingList(headingList);
   }, []);
 
   const handleClickHeading = (scrollPosition: number) => {
@@ -31,6 +31,8 @@ function App() {
       behavior: 'smooth',
     });
   };
+
+  if (headingList.length === 0) return null;
 
   return (
     <div className="side-table-of-contents">
